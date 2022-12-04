@@ -1,0 +1,80 @@
+.uib-datepicker-popup {
+  &.dropdown-menu {
+    border: 0;
+    border-radius: 0;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  .uib-daypicker {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  thead {
+    > tr {
+      > th {
+        line-height: 38px;
+
+        small {
+
+        }
+
+        .btn-default {
+
+          border: 0;
+
+          line-height: 20px;
+          min-width: 100%;
+
+          &:focus,
+          &:hover {
+
+          }
+        }
+      }
+    }
+  }
+
+  tbody {
+    > tr {
+      > td {
+        .btn-default {
+
+          min-width: 100%;
+
+          &:focus,
+          &:hover {
+
+
+            &.active {
+
+              &:focus,
+              &:hover {
+
+              }
+
+              .text-info {
+
+              }
+            }
+
+            &[disabled] {
+
+            }
+
+            .text-info {
+
+
+              .text-muted {
+
+                font-weight: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
