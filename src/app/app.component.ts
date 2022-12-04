@@ -18,6 +18,7 @@ import {
 } from 'date-fns';
 import {Subject} from 'rxjs';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { DateTime } from "luxon";
 const colors: Record<string, EventColor> = {
   red: {
     primary: '#ad2167',
@@ -58,12 +59,6 @@ export class AppComponent {
 
   viewDate: Date = new Date();
 
-  config = {
-    format: 'DD MMM YYYY',
-    openOnFocus: true,
-    appendTo: 'body',
-  };
-
 
   modalData!: {
     action: string;
@@ -92,9 +87,9 @@ export class AppComponent {
 
   events: CalendarEvent[] = [
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
+      start: new Date(),
+      end: addDays(new Date(), 3),
+      title: 'Morning shift',
       color: { ...colors['red'] },
       actions: this.actions,
       allDay: true,
@@ -105,9 +100,9 @@ export class AppComponent {
       draggable: true,
     },
     {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
+      start: addDays(new Date(), 7),
+      end: addDays(new Date(), 12),
+      title: 'Next week',
       color: { ...colors['yellow'] },
       actions: this.actions,
       resizable: {
@@ -163,7 +158,7 @@ export class AppComponent {
     this.events = [
       ...this.events,
       {
-        title: 'New event',
+        title: 'New shift',
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors['red'],
@@ -187,4 +182,10 @@ export class AppComponent {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
+
+  onDateChange(date: string) {
+   
+    this.refresh.next()
+  }
+
 }

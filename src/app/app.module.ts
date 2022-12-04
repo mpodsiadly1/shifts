@@ -7,10 +7,10 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import {FlatpickrModule} from 'angularx-flatpickr';
+
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DpDatePickerModule} from 'ng2-date-picker';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import {DpDatePickerModule} from 'ng2-date-picker';
     BrowserAnimationsModule,
     FormsModule,
     NgbModalModule,
-    DpDatePickerModule,
+    FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
